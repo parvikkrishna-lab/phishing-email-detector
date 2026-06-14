@@ -1,0 +1,323 @@
+/* ── Reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Variables ── */
+:root {
+  --bg:           #ffffff;
+  --bg-secondary: #f5f5f4;
+  --text:         #1a1a1a;
+  --text-muted:   #6b6b6b;
+  --text-hint:    #9a9a9a;
+  --border:       rgba(0, 0, 0, 0.12);
+  --border-md:    rgba(0, 0, 0, 0.22);
+  --radius-md:    8px;
+  --radius-lg:    12px;
+  --font:         system-ui, -apple-system, sans-serif;
+  --font-mono:    ui-monospace, monospace;
+}
+
+/* ── Base ── */
+body {
+  font-family: var(--font);
+  background: var(--bg-secondary);
+  color: var(--text);
+  min-height: 100vh;
+  padding: 2rem 1rem;
+}
+
+/* ── Layout ── */
+.container {
+  max-width: 680px;
+  margin: 0 auto;
+  background: var(--bg);
+  border-radius: var(--radius-lg);
+  border: 0.5px solid var(--border);
+  padding: 2rem;
+}
+
+/* ── Header ── */
+.header {
+  margin-bottom: 1.5rem;
+}
+
+.header h1 {
+  font-size: 20px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header p {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* ── Demo pills ── */
+.demo-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  margin-bottom: 6px;
+}
+
+.demos {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+
+.demo-pill {
+  padding: 4px 12px;
+  font-size: 12px;
+  border-radius: 20px;
+  border: 0.5px solid var(--border-md);
+  background: var(--bg-secondary);
+  color: var(--text-muted);
+  cursor: pointer;
+  font-family: var(--font);
+  transition: all 0.15s;
+}
+
+.demo-pill:hover {
+  background: #e8e8e6;
+  color: var(--text);
+}
+
+/* ── Form grid ── */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.field.full {
+  grid-column: 1 / -1;
+}
+
+label {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+input,
+textarea {
+  width: 100%;
+  font-size: 14px;
+  padding: 8px 10px;
+  border: 0.5px solid var(--border-md);
+  border-radius: var(--radius-md);
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #888;
+}
+
+textarea {
+  min-height: 130px;
+  line-height: 1.6;
+}
+
+/* ── Buttons ── */
+.actions {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  font-size: 14px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-family: var(--font);
+  border: 0.5px solid var(--border-md);
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.15s;
+}
+
+.btn:hover {
+  background: var(--bg-secondary);
+}
+
+.btn-primary {
+  background: var(--text);
+  color: var(--bg);
+  border-color: transparent;
+}
+
+.btn-primary:hover {
+  opacity: 0.85;
+}
+
+/* ── Result card ── */
+.result-card {
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  animation: fadein 0.3s ease;
+}
+
+@keyframes fadein {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.result-header {
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.result-header-title {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.risk-badge {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 20px;
+  letter-spacing: 0.04em;
+}
+
+.score-text {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* ── Score meter ── */
+.meter-bar {
+  height: 4px;
+  background: var(--bg-secondary);
+  margin: 0.75rem 1.25rem;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.meter-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.6s ease;
+}
+
+/* ── Verdict ── */
+.verdict {
+  padding: 0.75rem 1.25rem;
+  border-top: 0.5px solid var(--border);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ── Findings ── */
+.findings-section {
+  padding: 0.75rem 1.25rem;
+  border-top: 0.5px solid var(--border);
+}
+
+.findings-title {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 10px;
+  letter-spacing: 0.03em;
+}
+
+.finding {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 0.5px solid var(--border);
+}
+
+.finding:last-child {
+  border-bottom: none;
+}
+
+.finding-score {
+  font-size: 12px;
+  font-weight: 500;
+  min-width: 36px;
+  text-align: right;
+  padding-top: 1px;
+}
+
+.finding-cat {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.finding-detail {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 2px;
+  font-family: var(--font-mono);
+}
+
+/* ── Risk level themes ── */
+.safe .result-header  { background: #eaf3de; }
+.safe .risk-badge     { background: #eaf3de; color: #3b6d11; border: 0.5px solid #97c459; }
+.safe .finding-score  { color: #3b6d11; }
+
+.low .result-header   { background: #fafae8; }
+.low .risk-badge      { background: #fafae8; color: #6b6b00; border: 0.5px solid #c8c800; }
+.low .finding-score   { color: #6b6b00; }
+
+.medium .result-header { background: #faeeda; }
+.medium .risk-badge    { background: #faeeda; color: #854f0b; border: 0.5px solid #ef9f27; }
+.medium .finding-score { color: #854f0b; }
+
+.high .result-header  { background: #fcebeb; }
+.high .risk-badge     { background: #fcebeb; color: #a32d2d; border: 0.5px solid #e24b4a; }
+.high .finding-score  { color: #a32d2d; }
+
+/* ── Empty state ── */
+.empty {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-hint);
+  font-size: 14px;
+}
+
+.empty i {
+  font-size: 28px;
+  display: block;
+  margin: 0 auto 8px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .grid { grid-template-columns: 1fr; }
+  .field.full { grid-column: 1; }
+  .container { padding: 1.25rem; }
+}

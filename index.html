@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phishing Email Detector</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+
+    <div class="header">
+      <h1><i class="ti ti-shield-search"></i> Phishing detector</h1>
+      <p>Paste email details below to scan for suspicious indicators.</p>
+    </div>
+
+    <p class="demo-label">TRY A DEMO</p>
+    <div class="demos">
+      <button class="demo-pill" onclick="loadDemo(0)">Bank phishing</button>
+      <button class="demo-pill" onclick="loadDemo(1)">Lottery scam</button>
+      <button class="demo-pill" onclick="loadDemo(2)">Legitimate email</button>
+    </div>
+
+    <div class="grid">
+      <div class="field">
+        <label for="sender">From (sender)</label>
+        <input type="text" id="sender" placeholder="sender@example.com">
+      </div>
+      <div class="field">
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" placeholder="Email subject line">
+      </div>
+      <div class="field full">
+        <label for="body">Email body</label>
+        <textarea id="body" placeholder="Paste the email body here…"></textarea>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="btn btn-primary" onclick="runAnalysis()">
+        <i class="ti ti-shield-search"></i> Analyse email
+      </button>
+      <button class="btn" onclick="clearAll()">Clear</button>
+    </div>
+
+    <div id="result-area"></div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
